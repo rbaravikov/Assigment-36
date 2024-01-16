@@ -1,0 +1,14 @@
+@import './Variables';
+
+div.home {
+    color: $orange;
+    border-bottom: 1px solid lightgray;
+}
+
+div a {
+    text-decoration: none;
+    color: $orange;
+    font-size: 2em;
+    padding: 10px 30px;
+    display: block;
+}

@@ -1,0 +1,38 @@
+@import './Variables';
+
+.card {
+    border: 1px solid lightgray;
+    width: calc(100% / 4 - 30px);
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.buttonContainer {
+    display: flex;
+    margin: auto;
+    gap: 10px;
+    flex-wrap: wrap;
+    
+}
+
+.delete {
+    background: white;
+    color: $orange;
+    border: 1px solid $orange;
+    box-shadow: none;
+}
+@media (max-width: 900px) {
+    .card {
+        width: 40%;
+    }
+}
+@media (max-width: 560px) {
+    .card {
+        width: 80%;
+    }
+}
