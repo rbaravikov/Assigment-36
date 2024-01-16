@@ -19,6 +19,24 @@ const Home = () => {
         }
     }
 
+    const fetchDelete = async (id) => {
+        try {
+            const resp = await fetch(`https://vetbee-backend.glitch.me/v1/pets/${id}`, {
+                method: 'DELETE',
+            });
+            if (resp.ok) {
+                alert('Delete succesfull')
+                fetchData()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleDelete = async (id) => {
+        if(confirm(`Are you sure? ${id} will be gone`)) {fetchDelete(id)}
+    }
+
     useEffect(() => {fetchData()}, [])
 
     
@@ -35,7 +53,7 @@ const Home = () => {
                 <p>{new Date(pet.dob).toLocaleDateString("lt")} <br/>{pet.client_email}</p>
                 <div className={stylesCard.buttonContainer}>
                 <button className={button.button}>View Log</button>
-                <button className={stylesCard.delete}>Delete</button>
+                <button onClick={() =>handleDelete(pet.id)} className={stylesCard.delete}>Delete</button>
                 </div>
             </div>
         ))}
