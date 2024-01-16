@@ -13,7 +13,7 @@ const Home = () => {
             const resp = await fetch('https://vetbee-backend.glitch.me/v1/pets')
             const data = await resp.json()
             setPetList(data)
-            console.log(petList)
+            console.log(data)
         } catch (error) {
             console.log(error)
         }

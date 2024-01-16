@@ -1,33 +1,34 @@
 import form from  '../styles/Form.module.scss'
 import { useContext, useState } from "react";
-import { useNavigate  } from 'react-router-dom';
+import { AppContext } from '../App';
 
 
 const AddPet = () => {
-  const navigate = useNavigate()
+    
   const [newPet, setNewPet] = useState({ name:'', dob:'', client_email:''})  
-
-  const fetchData = async () => {
-    try {
-        const resp = await fetch('https://vetbee-backend.glitch.me/v1/pets', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newPet)
-            
-        });
-        const data = await resp.json();
-        navigate('/')
-    } catch (error) {
-        console.log(error)
-    }}
+  
+    const fetchData = async () => {
+      try {
+          const resp = await fetch('https://vetbee-backend.glitch.me/v1/pets', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(newPet)
+          });
+  
+          const data = await resp.json();
+          setPetList(...petList, data)
+      } catch (error) {
+          console.log(error)
+      }}
 
   const handleClick = (e) => {
     e.preventDefault()
     fetchData()
-  }
     
+  }
+  
   const handleInput = (e) =>{
     e.target.name === 'dob'?
     setNewPet((prevState) => ({ 
@@ -40,11 +41,10 @@ const AddPet = () => {
     }))
   }
 
-
   return (
     <div className={form.container}>
       <h1>Add Your Pet</h1>
-      <form className={form.form} onChange={handleInput} action="">
+      <form className={form.form} onInput={handleInput} action="">
         <label>
           Pet Name: <br/>
           <input name='name' type="text" placeholder="Lockis" />
@@ -56,8 +56,8 @@ const AddPet = () => {
         <label>
           Pet Email: <br/>
           <input name='client_email'type="email" placeholder='lockis@email.com' />
-        </label>
         <button className={form.button} type="submit" onClick={handleClick}>ADD PET</button>
+        </label>
       </form>
     </div>
   )
