@@ -21,7 +21,8 @@ const AddPetLog = () => {
             });
             const data = await resp.json();
             if(resp.ok) {
-            navigate('/petlogs/' + id)
+                alert("Success")
+                navigate('/petlogs/' + id)
             }
         } catch (error) {
             console.log(error)
@@ -37,7 +38,7 @@ const AddPetLog = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        postLog()
+        petLog.description && petLog.status ? postLog() : alert("Užpildykite visus laukelius")
     }
 
 
