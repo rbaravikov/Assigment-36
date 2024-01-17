@@ -1,13 +1,14 @@
 import form from  '../styles/Form.module.scss'
 import { useContext, useState } from "react";
 import { useNavigate  } from 'react-router-dom';
+import buttons from '../styles/Button.module.scss'
 
 
 const AddPet = () => {
   const navigate = useNavigate()
   const [newPet, setNewPet] = useState({ name:'', dob:'', client_email:''})  
 
-  const fetchData = async () => {
+  const postData = async () => {
     try {
         const resp = await fetch('https://vetbee-backend.glitch.me/v1/pets', {
             method: 'POST',
@@ -25,7 +26,7 @@ const AddPet = () => {
 
   const handleClick = (e) => {
     e.preventDefault()
-    fetchData()
+    postData()
   }
     
   const handleInput = (e) =>{
@@ -57,7 +58,7 @@ const AddPet = () => {
           Pet Email: <br/>
           <input name='client_email'type="email" placeholder='lockis@email.com' />
         </label>
-        <button className={form.button} type="submit" onClick={handleClick}>ADD PET</button>
+        <button className={buttons.addPet} type="submit" onClick={handleClick}>ADD PET</button>
       </form>
     </div>
   )

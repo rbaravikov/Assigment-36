@@ -1,25 +1,36 @@
 @import './Variables';
 
-button {
-    background: $orange;
-    border: none;
+.buttonContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.delete {
+    background: white;
+    color: $orange;
+    border: 1px solid $orange;
+    box-shadow: none;
     padding: 10px 25px;
-    color: white;
     border-radius: 4px;
-    box-shadow: 0 0 2px 1px $orange;
-    width: fit-content;
-    margin: auto;
+    transition: .3s;
 }
 
 .addPet {
+    text-decoration: none;
     background: $orange;
-    border: none;
-    padding: 10px 25px;
     color: white;
+    padding: 10px 20px;
     border-radius: 4px;
-    box-shadow: 0 0 2px 1px $orange;
-    width: fit-content;
-    height: min-content;
-    margin: auto;
-    font-size: 1em;
+    transition: .3s;
+    text-wrap: nowrap;
+}
+.addPet:hover, .delete:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .buttonContainer {
+        flex-direction: column;
+    }
 }

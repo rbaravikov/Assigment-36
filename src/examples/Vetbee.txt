@@ -24,7 +24,7 @@
 * Susikurti Add Log puslapį
 * Sutvarkyti navigaciją tarp jų (pradžioje tiesiog be jokių id hardcodinti)
 * Užkrauti Pet Logs pagal id iš url naudojant useParams() iš react-router-dom ir perduoti id į GET request: https://vetbee-backend.glitch.me/v1/logs/id
-* Naujų gyvūnų pridėjimas (pridėjus turėtų redirect į to pačio gyvūno logs puslapį) naudojant POST request: https://vetbee-backend.glitch.me/v1/logs/id
+* Naujų gyvūnų pridėjimas (pridėjus turėtų redirect į to pačio gyvūno logs puslapį) naudojant POST request: https://vetbee-backend.glitch.me/v1/logs
 * Reikalingi input ir schema: {  pet_id, description, status }. Kad gauti pet_id vėl remtis į url ir naudojant tą patį useParams()
 * Galimas ir net skatintinas bendradarbiavimas tarpusavyje
 * Viską įkelti į Github ir paviešinti per Vercel

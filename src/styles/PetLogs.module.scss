@@ -1,0 +1,55 @@
+@import './Variables';
+
+.back {
+    color: $orange;
+    border: 1px solid $orange;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 1px $orange;
+    width: fit-content;
+    height: min-content;
+    padding: 5px 10px;
+    font-size: 1.5em;
+    margin: 5px;
+}
+
+
+.addLog {
+    background: $orange;
+    box-shadow: 0 0 2px 1px $orange;
+    color: white;
+    border-radius: 4px;
+    width: fit-content;
+    height: min-content;
+    padding: 5px 10px;
+    font-size: 1.5em;
+    margin: 5px;
+    display: inline-block;
+}
+
+.buttonsContainer{
+    margin: auto;
+    display: inline-block;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+}
+
+.card {
+    width: 250px;
+    min-height: 400px;
+    color: gray;
+    height: 250px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.h2 {
+    line-height: 1.5em;
+}
+
+.date {
+    justify-content: baseline;
+    margin: auto;
+}

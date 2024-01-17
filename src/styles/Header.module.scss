@@ -1,14 +1,16 @@
 @import './Variables';
 
-div.home {
+.header {
     color: $orange;
     border-bottom: 1px solid lightgray;
+    margin-bottom: 20px;
 }
 
-div a {
+.link {
     text-decoration: none;
     color: $orange;
     font-size: 2em;
-    padding: 10px 30px;
+    padding: 10px 50px;
     display: block;
+    margin-left: 50px;
 }

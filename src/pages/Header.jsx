@@ -1,12 +1,12 @@
 import { Outlet, Link } from "react-router-dom"
 import { SiAtom } from "react-icons/si"
-import '../styles/Header.module.scss'
+import styles from '../styles/Header.module.scss'
 
 const Header = () => {
   return (
     <>
-    <div className="header">
-        <Link to='/'><SiAtom /> vetbee</Link>
+    <div className={styles.header}>
+        <Link className={styles.link} to='/'><SiAtom /> vetbee</Link>
     </div>
     <Outlet />
     </>
