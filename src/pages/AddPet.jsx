@@ -6,6 +6,7 @@ import buttons from '../styles/Button.module.scss'
 
 const AddPet = () => {
   const navigate = useNavigate()
+  const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
   const [newPet, setNewPet] = useState({ name:'', dob:'', client_email:''})  
 
   const postData = async () => {
@@ -26,7 +27,11 @@ const AddPet = () => {
 
   const handleClick = (e) => {
     e.preventDefault()
-    postData()
+    newPet.name && newPet.dob && newPet.client_email ?
+      (newPet.client_email.match(isValidEmail)) ?
+        postData()
+        : alert(`E-mail netinkamas ('user@example.com')`)
+      : alert("Užpildykite visus laukelius")  
   }
     
   const handleInput = (e) =>{
@@ -37,7 +42,7 @@ const AddPet = () => {
     }))
     : setNewPet((prevState) => ({ 
       ...prevState,
-      [e.target.name]:e.target.value
+      [e.target.name]:e.target.value.trim()
     }))
   }
 
@@ -48,15 +53,15 @@ const AddPet = () => {
       <form className={form.form} onChange={handleInput} action="">
         <label>
           Pet Name: <br/>
-          <input name='name' type="text" placeholder="Lockis" />
+          <input className={form.input} name='name' type="text" placeholder="Lockis" />
         </label>
         <label>
           Pet Birthday: <br/>
-          <input name='dob' type="date"/>
+          <input className={form.input} name='dob' type="date"/>
         </label>
         <label>
           Pet Email: <br/>
-          <input name='client_email'type="email" placeholder='lockis@email.com' />
+          <input className={form.input} name='client_email'type="email" placeholder='lockis@email.com'/>
         </label>
         <button className={buttons.addPet} type="submit" onClick={handleClick}>ADD PET</button>
       </form>

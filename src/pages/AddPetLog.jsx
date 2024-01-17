@@ -1,3 +1,6 @@
+import styles from '../styles/AddPetLog.module.scss'
+import form from  '../styles/Form.module.scss'
+import button from '../styles/Button.module.scss'
 import { useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
@@ -39,20 +42,18 @@ const AddPetLog = () => {
 
 
     return (
-        <div>
+        <div className={form.container} >
             <h1>Lucky Log</h1>
-            <form action="" onChange={handleInput}>
-                <label >
-                Status <br/>
-                <input name='status' type="text" />
+            <form className={form.form} action="" onChange={handleInput}>
+                <label > Status <br/>
+                <input className={form.input} name='status' type="text" placeholder='Hiberium Colliulitus' />
                 </label>
-                <label >
-                Description <br/>
-                <input name='description' type="text" />
+                <label > Description <br/>
+                <textarea name='description' className={styles.description} type="text" placeholder='Removed some fat...' />
                 </label>
-                <div className="buttons">
-                    <button type="submit" onClick={handleSubmit}>ADD PET</button>
-                    <Link to={'/petlogs/' + id} >Go Back</Link>
+                <div className={button.buttonContainer}>
+                    <button className={button.addLog} type="submit" onClick={handleSubmit}>ADD PET</button>
+                    <Link className={button.back} to={'/petlogs/' + id} >Go Back</Link>
                 </div>
             </form>
         </div>

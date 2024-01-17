@@ -9,6 +9,7 @@ const Header = () => {
         <Link className={styles.link} to='/'><SiAtom /> vetbee</Link>
     </div>
     <Outlet />
+    <footer className={styles.footer}><p>Copyright © VetBee 2023. All rights reserved.</p></footer>
     </>
   )
 }

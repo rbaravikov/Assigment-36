@@ -1,0 +1,13 @@
+@import './Variables';
+
+.description {
+    height: 300px;
+    width: 50vw;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 10px;
+    &:focus {
+        outline: none;
+        
+    }
+}

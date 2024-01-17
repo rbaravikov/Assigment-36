@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom"
+import button from '../styles/Button.module.scss'
 import styles from '../styles/PetLogs.module.scss'
 import { useEffect, useState } from "react"
 
@@ -20,23 +21,22 @@ const PetLogs = () => {
   useEffect(() => {fetchData()}, [])
 
   return (
-    <>
-    <h1>Lucky: Health Records</h1>
-    <div className={styles.buttonsContainer}>
-    <Link className={styles.back} to='/' >Go Back</Link>
-    <Link className={styles.addLog} to={'/addpetlog/' + id} >ADD LOG</Link>
+    <div className={styles.container}>
+    {logs[0] && <h1 className={styles.h1}>{logs[0].name}: Health Records</h1>}
+    <div className={(styles.nav)}>
+    <Link className={(styles.button + ' ' + button.back)} to='/' >Go Back</Link>
+    <Link className={(styles.button + ' ' + button.addLog)} to={'/addpetlog/' + id} >ADD LOG</Link>
     </div>
-    {logs.map((log, index) => (
-    <div className="cards" key={index}>
-      <div className={styles.card}>
-        <h2 className={styles.h2}>{log.status}</h2>
-        <p>{log.description}</p>
-        <p className={styles.date}>{new Date(log.dob).toLocaleDateString("lt")}</p>
-      </div>
+    <div className={styles.cardsContainer}>
+      {logs && logs.map((log, index) => (
+        <div className={styles.card} key={index}>
+          <h2 className={styles.h2}>{log.status}</h2>
+          <p>{log.description}</p>
+          <p className={styles.date}>{new Date(log.dob).toLocaleDateString("lt")}</p>
+        </div>
+      ))}
     </div> 
-    )
-    )}
-    </>
+    </div>
   )
 }
 
