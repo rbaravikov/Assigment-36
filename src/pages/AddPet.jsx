@@ -28,23 +28,24 @@ const AddPet = () => {
 
   const handleClick = (e) => {
     e.preventDefault()
-    newPet.name && newPet.dob && newPet.client_email ?
-      (newPet.client_email.match(isValidEmail)) ?
-        postData()
-        : alert(`E-mail netinkamas ('user@example.com')`)
-      : alert("Užpildykite visus laukelius")  
+    newPet.name.match(/[^a-zA-Z0-9]/) ? alert("Vardas negali turėti specialių simbolių!") :
+      newPet.name && newPet.dob && newPet.client_email ?
+        (newPet.client_email.match(isValidEmail)) ?
+          postData()
+          : alert(`E-mail netinkamas ('user@example.com')`)
+        : alert("Užpildykite visus laukelius")  
   }
     
-  const handleInput = (e) =>{
-    e.target.name === 'dob'?
-    setNewPet((prevState) => ({ 
-      ...prevState,
-      [e.target.name]: new Date(e.target.value).getTime()
-    }))
-    : setNewPet((prevState) => ({ 
-      ...prevState,
-      [e.target.name]:e.target.value.trim()
-    }))
+  const handleInput = (e) => {
+    e.target.name === 'dob'
+      ? setNewPet((prevState) => ({ 
+          ...prevState,
+          [e.target.name]: new Date(e.target.value).getTime()
+        }))
+      : setNewPet((prevState) => ({ 
+          ...prevState,
+          [e.target.name]: e.target.value.trim()
+        }));
   }
 
 
