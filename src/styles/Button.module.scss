@@ -3,7 +3,7 @@
 .buttonContainer {
     display: flex;
     gap: 20px;
-    max-width: 200px;
+    width: fit-content;
 }
 
 .delete, .back {
@@ -13,13 +13,18 @@
     color: $orange;
     border: 1px solid $orange;
     box-shadow: none;
+    max-height: 40px;
     padding: 10px 25px;
     border-radius: 4px;
     transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .addPet, .addLog {
     text-decoration: none;
+    max-height: 40px;
     background: $orange;
     color: white;
     padding: 10px 20px;
@@ -36,5 +41,8 @@
 @media (max-width: 768px) {
     .buttonContainer {
         flex-direction: column;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
     }
 }

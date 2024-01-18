@@ -12,7 +12,6 @@ const PetLogs = () => {
         const resp = await fetch(`https://vetbee-backend.glitch.me/v1/logs/${id}`)
         const data = await resp.json()
         setLogs(data)
-        console.log(data)
     } catch (error) {
         console.log(error)
     }
@@ -21,11 +20,13 @@ const PetLogs = () => {
   useEffect(() => {fetchData()}, [])
 
   return (
+    <>
     <div className={styles.container}>
-    {logs[0] && <h1 className={styles.h1}>{logs[0].name}: Health Records</h1>}
-    <div className={(styles.nav)}>
-    <Link className={(styles.button + ' ' + button.back)} to='/' >Go Back</Link>
-    <Link className={(styles.button + ' ' + button.addLog)} to={'/addpetlog/' + id} >ADD LOG</Link>
+      {logs[0] && <h1 className={styles.h1}>{logs[0].name}: Health Records</h1>}
+      <div className={button.buttonContainer}>
+        <Link className={(button.back)} to='/' >Go Back</Link>
+        <Link className={(button.addLog)} to={'/addpetlog/' + id} >ADD LOG</Link>
+    </div>
     </div>
     <div className={styles.cardsContainer}>
       {logs && logs.map((log, index) => (
@@ -36,7 +37,7 @@ const PetLogs = () => {
         </div>
       ))}
     </div> 
-    </div>
+    </>
   )
 }
 

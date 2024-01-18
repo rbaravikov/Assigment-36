@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     margin: auto;
     padding: 60px 100px;
+    width: fit-content;
 }
 
 h1 {
@@ -23,7 +24,8 @@ h1 {
 
 .card {
     border: 1px solid lightgray;
-    width: fit-content;
+    min-width:fit-content;
+    max-width: 400px;
     text-align: center;
     padding: 10px 20px;
     border-radius: 5px;
