@@ -1,5 +1,5 @@
 import form from  '../styles/Form.module.scss'
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate  } from 'react-router-dom';
 import buttons from '../styles/Button.module.scss'
 
@@ -20,7 +20,8 @@ const AddPet = () => {
             
         });
         const data = await resp.json();
-        navigate('/')
+        resp.ok ? alert("Data added") : console.log(data)
+        resp.ok ? navigate('/'): ''
     } catch (error) {
         console.log(error)
     }}
